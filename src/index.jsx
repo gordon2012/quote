@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import reducer from './reducer';
-import {setState} from './action_creators';
+import {fetchQuote} from './action_creators';
 import App from './components/App';
 import './sass/style.sass';
 
-const store = createStore(reducer);
+const store = createStore (
+  reducer,
+  applyMiddleware(
+    thunk
+  )
+);
 
-store.dispatch(setState({quote: 'This is a random quote generator. Fear it!'}));
+store.dispatch(fetchQuote());
 
 ReactDOM.render(
   <Provider store={store}>
