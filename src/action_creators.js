@@ -13,6 +13,13 @@ export function receiveQuote(json) {
     }
 }
 
+export function receiveList(data) {
+    return {
+        type: 'RECEIVE_LIST',
+        data
+    }
+}
+
 
 var api = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
 var cors = process.env.NODE_ENV === 'development' ?
@@ -32,3 +39,21 @@ export const prefetchQuotes = () => dispatch =>
         .then(dispatch(doFetch()))
         .then(dispatch(doFetch()))
         .then(dispatch(doFetch()));
+
+
+function randRange(min, max) {
+    return Math.floor(Math.random() * (max-min+1) + min);
+}
+
+export const addList = () => (dispatch, getState) => {
+    const {list, quotes} = getState();
+    const keys = Object.keys(quotes).filter(e1 => !list.some(e2 => e1 === e2) );
+    const len = keys.length;
+
+    var promises = [];
+
+    if(len < 10) promises.push(dispatch(prefetchQuotes()));
+    if(len > 0) promises.push(dispatch(receiveList(keys[randRange(0, len-1)])));
+
+    return Promise.all(promises);
+}

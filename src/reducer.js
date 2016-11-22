@@ -8,6 +8,11 @@ export default function(state = {}, action) {
                     [action.data.quoteLink.split('/')[4]]: action.data
                 })
             });
+        case 'RECEIVE_LIST':
+            return {
+                ...state,
+                list: [action.data, ...state.list]
+            };
         default:
             return state;
     }

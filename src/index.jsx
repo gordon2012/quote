@@ -4,7 +4,7 @@ import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import reducer from './reducer';
-import {prefetchQuotes} from './action_creators';
+import {setState, prefetchQuotes} from './action_creators';
 import App from './components/App';
 import './sass/style.sass';
 
@@ -15,6 +15,7 @@ const store = createStore (
   )
 );
 
+store.dispatch(setState({quotes: {}, list: []}));
 store.dispatch(prefetchQuotes());
 
 ReactDOM.render(

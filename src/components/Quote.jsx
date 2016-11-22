@@ -4,23 +4,22 @@ import * as actionCreators from '../action_creators';
 
 export const Quote = React.createClass({
     render: function() {
-        const {quotes} = this.props;
+        const {list, quotes} = this.props;
 
         return <div>
             <h1>Random Quote Generator</h1>
-            <button onClick={this.props.fetchQuote}>Get a Quote</button>
-            <button onClick={this.props.prefetchQuotes}>Get many Quotes</button>
+            <button onClick={this.props.addList}>Get a Quote</button>
 
             <ul>
-                {typeof quotes !== 'undefined' ?
-                    Object.keys(quotes).map(key => {
-                        var quote = quotes[key];
-                        return <li key={key}><strong>{quote.quoteText}</strong><em> --{quote.quoteAuthor.length === 0 ? 'Unknown' : quote.quoteAuthor}</em></li>
-                    }) : null
-                }
+                { list.map(e =>
+                    <li key={e}>
+                        <strong>{quotes[e].quoteText}</strong>
+                        <em> --{quotes[e].quoteAuthor.length === 0 ? 'Unknown' : quotes[e].quoteAuthor}</em>
+                    </li>
+                )}
             </ul>
 
-            <hr /><pre><code>{JSON.stringify(this.props, null, 2)}</code></pre>
+            {/*true && <div><hr /><pre><code>{JSON.stringify(this.props, null, 2)}</code></pre></div>*/}
         </div>;
     }
 });
