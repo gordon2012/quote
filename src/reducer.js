@@ -13,6 +13,11 @@ export default function(state = {}, action) {
                 ...state,
                 list: [action.data, ...state.list]
             };
+        case 'CHANGE_COUNT':
+            return {
+                ...state,
+                count: state.count + action.inc
+            }
         default:
             return state;
     }

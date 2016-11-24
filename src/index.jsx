@@ -15,7 +15,7 @@ const store = createStore (
   )
 );
 
-store.dispatch(setState({quotes: {}, list: []}));
+store.dispatch(setState({quotes: {}, list: [], count: 0}));
 store.dispatch(prefetchQuotes());
 
 ReactDOM.render(
