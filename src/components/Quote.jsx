@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators';
+import Entry from './Entry';
 
 export const Quote = React.createClass({
     render: function() {
@@ -10,16 +11,13 @@ export const Quote = React.createClass({
             <h1>Random Quote Generator</h1>
             <button onClick={this.props.addList}>Get a Quote</button>
 
-            <ul>
-                { list.map(e =>
-                    <li key={e}>
-                        <strong>{quotes[e].quoteText}</strong>
-                        <em> --{quotes[e].quoteAuthor.length === 0 ? 'Unknown' : quotes[e].quoteAuthor}</em>
-                    </li>
+            <div>
+                {list.map(e =>
+                    <Entry key={e} quote={quotes[e]}></Entry>
                 )}
-            </ul>
+            </div>
 
-            {/*true && <div><hr /><pre><code>{JSON.stringify(this.props, null, 2)}</code></pre></div>*/}
+            {process.env.NODE_ENV === 'development' && <div><hr /><pre><code>{JSON.stringify(this.props, null, 2)}</code></pre></div>}
         </div>;
     }
 });
