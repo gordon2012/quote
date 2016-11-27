@@ -7,11 +7,11 @@ export const Quote = React.createClass({
     render: function() {
         const {list, quotes} = this.props;
 
-        return <div>
-            <h1>Random Quote Generator</h1>
-            <button onClick={this.props.addList}>Get a Quote</button>
+        return <div className="quote">
+            <header><h1>Random Quote Generator</h1></header>
+            <button onClick={this.props.addList}><h3>Get a Quote</h3></button>
 
-            <div>
+            <div className="quotelist">
                 {list.map(e =>
                     <Entry key={e} quote={quotes[e]}></Entry>
                 )}

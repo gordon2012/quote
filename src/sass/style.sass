@@ -1,5 +1,51 @@
+body
+    margin: 0
 h1
     text-align: center
-
 pre
     white-space: pre-wrap
+
+
+$break-mobile: 599px
+$break-tablet: 600px
+$break-laptop: 900px
+$break-desktop: 1200px
+$break-lg-desktop: 1800px
+
+
+@mixin mobile
+    @media (max-width: $break-mobile)
+        @content
+@mixin tablet
+    @media (min-width: $break-tablet)
+        @content
+@mixin laptop
+    @media (min-width: $break-laptop)
+        @content
+@mixin desktop
+    @media (min-width: $break-desktop)
+        @content
+@mixin large-desktop
+    @media (min-width: $break-lg-desktop)
+        @content
+
+
+.quote
+    max-width: $break-laptop
+    margin: 0 auto
+    padding: 16px
+
+    button
+        padding: 16px
+        margin: auto
+        display: block
+
+        width: calc(#{$break-tablet} - 32px)
+        @include mobile
+            width: 100%
+
+    .entry
+        margin: 16px 0
+        padding: 0 16px
+
+        border: 1px solid black
