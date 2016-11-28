@@ -16,8 +16,6 @@ export const Quote = React.createClass({
                     <Entry key={e} quote={quotes[e]}></Entry>
                 )}
             </div>
-
-            {process.env.NODE_ENV === 'development' && <div><hr /><pre><code>{JSON.stringify(this.props, null, 2)}</code></pre></div>}
         </div>;
     }
 });
