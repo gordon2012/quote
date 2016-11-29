@@ -1,0 +1,2 @@
+.quote{max-width:900px;margin:0 auto}@media (max-width:599px){.quote{background:red}}@media (min-width:600px){.quote{background:lime}}@media (min-width:900px){.quote{background:cyan}}@media (min-width:1200px){.quote{background:#ff0}}@media (min-width:1800px){.quote{background:#f0f}}.quote .entry{margin:16px;padding:16px}h1{text-align:center}pre{white-space:pre-wrap}.entry{background:#ff0;border:1px solid #000}
+/*# sourceMappingURL=main.dc736072.css.map*/
