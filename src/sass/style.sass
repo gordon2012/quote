@@ -38,26 +38,6 @@ $break-lg-desktop: 1800px
 .content
     flex: 1
 
-.quote
-    max-width: calc(#{$break-laptop} - 32px)
-    margin: 0 auto
-    padding: 16px
-
-    button
-        padding: 16px
-        margin: auto
-        display: block
-
-        width: calc(#{$break-tablet} - 32px)
-        @include mobile
-            width: 100%
-
-    .entry
-        margin: 16px 0
-        padding: 0 16px
-
-        border: 1px solid black
-
 footer
     background: #efefef
     padding: 8px 0
@@ -79,3 +59,25 @@ footer
         padding: 0 32px
         @include mobile
             display: none
+
+
+.quote
+    max-width: calc(#{$break-laptop} - 32px)
+    margin: 0 auto
+    padding: 16px
+
+    .quoteButton
+        padding: 16px
+        margin: auto
+        display: block
+
+        width: calc(#{$break-tablet} - 32px)
+        @include mobile
+            width: 100%
+
+
+.entry
+    margin: 16px 0
+    padding: 0 16px 16px 16px
+
+    border: 1px solid black

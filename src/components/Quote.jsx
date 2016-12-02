@@ -12,7 +12,7 @@ export const Quote = React.createClass({
             <header><h1>Random Quote Generator</h1></header>
             <div className="content">
                 <div className="quote">
-                    <button disabled={disabled} onClick={disabled ? '' : this.props.addList}><h3>Get a Quote</h3></button>
+                    <button className="quoteButton" disabled={disabled} onClick={disabled ? '' : this.props.addList}><h3>Get a Quote</h3></button>
 
                     <div className="quotelist">
                         {list.map(e =>
