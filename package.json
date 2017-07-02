@@ -64,8 +64,8 @@
     "build:stage": "node scripts/build.stage.js",
     "build:prod": "node scripts/build.prod.js",
     "test": "node scripts/test.js --env=jsdom",
-    "deploy:stage": "npm run build:stage && gh-pages -d build",
-    "deploy:prod": "npm run build:prod && surge build quote.gordondoskas.com",
+    "deploy:stage": "npm run build:stage && surge build quote.gurudreams.win",
+    "deploy:prod": "npm run build:prod && scp -r build/* hg:/home1/gordon2012/src/quote",
     "cors": "node scripts/cors-anywhere/server.js"
   },
   "jest": {
@@ -94,5 +94,5 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "http://gordon2012.github.io/quote"
+  "homepage": "http://gordondoskas.com/quote"
 }
